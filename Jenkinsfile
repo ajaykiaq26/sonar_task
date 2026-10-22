@@ -10,7 +10,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
+                withSonarQubeEnv('SonarQube Lab') {
                     sh '''
                         /opt/sonar-scanner-8.0.1.6346-linux/bin/sonar-scanner \
                           -Dsonar.projectKey=sonar_task1 \
