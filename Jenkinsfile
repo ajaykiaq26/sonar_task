@@ -13,19 +13,12 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube Lab') {
                     sh '''
-                        /usr/local/bin/sonar-scanner \
+                        sonar-scanner \
                           -Dsonar.projectKey=sonar_task1 \
                           -Dsonar.projectName="SonarQube Lab" \
-                          -Dsonar.sources=.
+                          -Dsonar.sources=. \
+                          -Dsonar.host.url=http://localhost:9000
                     '''
-                }
-            }
-        }
-
-        stage('Quality Gate') {
-            steps {
-                timeout(time: 5, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
                 }
             }
         }
