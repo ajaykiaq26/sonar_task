@@ -1,3 +1,4 @@
+```groovy
 pipeline {
     agent any
 
@@ -12,7 +13,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube Lab') {
                     sh '''
-                        sonar-scanner \
+                        /usr/local/bin/sonar-scanner \
                           -Dsonar.projectKey=sonar_task1 \
                           -Dsonar.projectName="SonarQube Lab" \
                           -Dsonar.sources=.
@@ -30,3 +31,4 @@ pipeline {
         }
     }
 }
+```
