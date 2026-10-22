@@ -11,13 +11,12 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube Lab') {
+                withSonarQubeEnv('SonarQube') {
                     sh '''
-                        sonar-scanner \
+                        /opt/sonar-scanner-8.0.1.6346-linux-x64/bin/sonar-scanner \
                           -Dsonar.projectKey=sonar_task1 \
                           -Dsonar.projectName="SonarQube Lab" \
-                          -Dsonar.sources=. \
-                          -Dsonar.host.url=http://localhost:9000
+                          -Dsonar.sources=.
                     '''
                 }
             }
