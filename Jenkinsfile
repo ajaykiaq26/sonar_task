@@ -10,9 +10,9 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
+                withSonarQubeEnv('SonarQube Labs') {
                     sh '''
-                        /opt/sonar-scanner-8.0.1.6346-linux-x64/bin/sonar-scanner \
+                        sonar-scanner \
                           -Dsonar.projectKey=sonar_task1 \
                           -Dsonar.projectName="SonarQube Lab" \
                           -Dsonar.sources=.
