@@ -12,7 +12,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube Lab') {
                     sh '''
-                        /opt/sonar-scanner-8.0.1.6346-linux/bin/sonar-scanner \
+                        /opt/sonar-scanner/bin/sonar-scanner \ 
                           -Dsonar.projectKey=jenkins token \
                           -Dsonar.projectName="SonarQube Lab" \
                           -Dsonar.sources=.
