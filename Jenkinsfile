@@ -1,3 +1,4 @@
+```groovy
 pipeline {
     agent any
 
@@ -12,13 +13,23 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh '''
-                        /opt/sonar-scanner-8.0.1.6346-linux-x64/bin/sonar-scanner \
+                        /opt/sonar-scanner-8.0.1.6346-linux/bin/sonar-scanner \
                           -Dsonar.projectKey=sonar_task1 \
                           -Dsonar.projectName="SonarQube Lab" \
                           -Dsonar.sources=.
                     '''
                 }
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'SonarQube analysis completed successfully!'
+        }
+
+        failure {
+            echo 'Pipeline failed. Check the Jenkins console output.'
         }
     }
 }
